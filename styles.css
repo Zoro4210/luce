@@ -569,16 +569,16 @@ form div{border-bottom-color:var(--ink)}
 /* Compact visit film and expanded museum footer. */
 .visit{position:relative;grid-template-columns:minmax(280px,.82fr) minmax(0,1fr);align-items:center;padding-bottom:9rem}
 .visit .button{position:absolute;right:7vw;bottom:3rem;grid-column:auto}
-.visit-feature{width:min(360px,100%);margin:0;justify-self:center}
+.visit-feature{width:min(360px,100%);margin:0;justify-self:start}
 .visit-feature video{display:block;width:100%;aspect-ratio:1;object-fit:cover;border:0;border-radius:0;outline:0;background:transparent;box-shadow:none;pointer-events:none}
 .visit-feature figcaption{margin-top:1rem;font:italic 1.35rem/1.2 var(--serif);letter-spacing:-.015em;color:var(--ink)}
 .footer-bottom{min-height:390px;grid-template-columns:minmax(180px,.7fr) minmax(0,2.3fr);grid-template-rows:1fr auto;column-gap:clamp(2rem,5vw,6rem);row-gap:1.5rem;padding:8.5rem 4vw 2.25rem;align-items:start}
-.footer-bottom .footer-identity{display:block;align-self:end}
-.footer-identity>p{margin-top:1rem;max-width:220px}
+.footer-bottom .footer-identity{display:flex;align-items:flex-start;align-self:end;height:106px}
+.footer-identity .brand{font:italic 700 1.65rem var(--serif);font-size:1.65rem;letter-spacing:normal;text-transform:none;color:var(--ink)}
 .footer-museum-links{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:clamp(1.25rem,3vw,3.5rem);align-self:end}
 .footer-bottom .footer-museum-links>div{display:flex;flex-direction:column;align-items:flex-start;gap:.7rem}
 .footer-museum-links strong{margin-bottom:.25rem;font-size:.64rem;letter-spacing:.14em;text-transform:uppercase}
-.footer-museum-links a,.footer-museum-links span{color:var(--ink);font:italic .88rem/1.25 var(--serif);text-decoration:none;cursor:default}
+.footer-bottom .footer-museum-links a,.footer-museum-links span{color:var(--ink);font:italic .88rem/1.25 var(--serif);letter-spacing:normal;text-transform:none;text-decoration:none;cursor:default}
 .footer-museum-links a{cursor:pointer}
 .footer-museum-links a:hover{text-decoration:underline;text-underline-offset:4px}
 .footer-bottom .footer-meta{grid-column:1 / -1;display:flex;align-items:center;gap:1.4rem;padding-top:1.25rem;border-top:1px solid rgba(41,39,37,.24);font-size:.62rem;letter-spacing:.1em;text-transform:uppercase}
@@ -589,6 +589,7 @@ form div{border-bottom-color:var(--ink)}
   .visit .button{right:6vw;bottom:2.5rem}
   .visit-feature{justify-self:start;width:min(340px,100%)}
   .footer-bottom{grid-template-columns:1fr;grid-template-rows:auto;min-height:0;padding-top:5rem}
+  .footer-bottom .footer-identity{height:auto}
   .footer-museum-links{grid-template-columns:repeat(2,minmax(0,1fr))}
   .footer-bottom .footer-meta{grid-column:1;flex-wrap:wrap}
   .footer-meta p{width:100%;margin-right:0!important}
@@ -597,4 +598,25 @@ form div{border-bottom-color:var(--ink)}
   .visit-feature{width:100%}
   .visit-feature figcaption{font-size:1.15rem}
   .footer-museum-links{grid-template-columns:1fr 1fr;gap:2.25rem 1.25rem}
+}
+
+/* One responsive editorial gutter keeps section edges aligned site-wide. */
+:root{--page-gutter:clamp(1.25rem,6vw,6rem)}
+.nav-wrap{padding-left:var(--page-gutter);padding-right:var(--page-gutter)}
+.hero-copy{left:var(--page-gutter)}
+.date-seal{right:var(--page-gutter)}
+.story-copy{padding-left:var(--page-gutter);padding-right:var(--page-gutter)}
+.poster{padding-left:var(--page-gutter);padding-right:var(--page-gutter)}
+.collection{padding-left:var(--page-gutter);padding-right:var(--page-gutter)}
+.visit{padding-left:var(--page-gutter);padding-right:var(--page-gutter)}
+.visit .button{right:var(--page-gutter)}
+.footer-copy{padding-left:var(--page-gutter);padding-right:var(--page-gutter)}
+.footer-bottom{padding-left:var(--page-gutter);padding-right:var(--page-gutter)}
+@media (min-width:851px){
+  .footer-location{justify-self:end;margin-right:var(--page-gutter)}
+}
+@media (max-width:850px){
+  .hero-copy{right:var(--page-gutter)}
+  .chapters a{padding-left:var(--page-gutter);padding-right:var(--page-gutter)}
+  .visit-feature{justify-self:start}
 }
