@@ -313,6 +313,9 @@ form{margin-top:3rem}
   background-position:center 50%;
   background-size:cover;
 }
+.visitor-notice{display:flex;align-items:center;gap:.75rem;max-width:max-content;margin:0;padding:.5rem .7rem;color:var(--ink);background:rgba(245,241,232,.9);text-shadow:none;box-shadow:0 4px 20px rgba(0,0,0,.12)}
+.visitor-notice strong{padding-right:.75rem;border-right:1px solid rgba(41,39,37,.3);font-size:.58rem;letter-spacing:.14em;white-space:nowrap}
+.visitor-notice span{font:italic .78rem/1.2 var(--serif);letter-spacing:.01em;text-transform:none;white-space:nowrap}
 .hero{height:calc(100vh - 192px)}
 
 @media (max-width:850px){
@@ -603,6 +606,7 @@ form div{border-bottom-color:var(--ink)}
 /* One responsive editorial gutter keeps section edges aligned site-wide. */
 :root{--page-gutter:clamp(1.25rem,6vw,6rem)}
 .nav-wrap{padding-left:var(--page-gutter);padding-right:var(--page-gutter)}
+.utility{padding-left:var(--page-gutter);padding-right:var(--page-gutter)}
 .hero-copy{left:var(--page-gutter)}
 .date-seal{right:var(--page-gutter)}
 .story-copy{padding-left:var(--page-gutter);padding-right:var(--page-gutter)}
