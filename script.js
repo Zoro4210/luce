@@ -175,8 +175,6 @@ function initAsciiRipple(element, duration = 1000, spread = 1) {
   });
 }
 
-document.querySelectorAll('.chapters a, .story .line-button').forEach(element => initAsciiRipple(element));
-
 function initSmoothInput(input) {
   const wrapper = input.parentElement;
   const caret = document.createElement('span');
