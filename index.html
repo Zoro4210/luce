@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>The Luminous Archive — Luce Museum</title>
+  <meta name="description" content="The Luminous Archive brings Renaissance portraiture into conversation with the ways we see, study, and remember today.">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%230d110d'/%3E%3Ccircle cx='16' cy='16' r='10' fill='none' stroke='%23d2b982' stroke-width='2'/%3E%3Cpath d='M10 22l6-14 6 14M12.5 17h7' fill='none' stroke='%23d2b982' stroke-width='2'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to exhibition</a>
+  <header class="site-header">
+    <div class="utility"><span>Open today 10:00–18:00</span><span>Koramangala · Bengaluru</span></div>
+    <div class="nav-wrap">
+      <a class="brand" href="#top" aria-label="Luce Museum home"><img class="museum-mark" src="assets/aureum-angels.png" alt=""> luce</a>
+      <button class="menu-toggle" aria-expanded="false" aria-controls="main-nav">Menu</button>
+      <nav id="main-nav" aria-label="Main navigation">
+        <a href="#exhibition">Exhibition</a><a href="#collection">Collection</a><a href="#story">About</a><a href="#visit">Visit</a>
+      </nav>
+      <a class="ticket-link" href="#visit">Plan your visit <span>↗</span></a>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero" id="top" aria-labelledby="hero-title">
+      <div class="hero-image" role="img" aria-label="Grand neoclassical museum rotunda with sculpted reliefs and portrait busts"></div>
+      <div class="hero-grid" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+      <div class="hero-copy">
+        <p class="eyebrow">Special exhibition · Gallery I–IV</p>
+        <h1 id="hero-title">L’Archivio<br><em>Luminoso</em></h1>
+        <p class="intro">Portraits, private worlds, and the quiet technologies that changed how we look.</p>
+        <div class="hero-actions"><a class="button light" href="#collection">Enter the exhibition</a><button class="text-button" data-open="details">Curator’s note <span>→</span></button></div>
+      </div>
+      <div class="date-seal"><span>03 OCT 2026</span><strong>—</strong><span>31 JAN 2027</span></div>
+    </section>
+
+    <section class="chapters" id="exhibition" aria-label="Exhibition chapters">
+      <a href="#collection"><span>01</span><strong>Faces of Humanism</strong><em>Portraits & selfhood</em><b>↗</b></a>
+      <a href="#collection"><span>02</span><strong>Light as Language</strong><em>Gesture & revelation</em><b>↗</b></a>
+      <a href="#story"><span>03</span><strong>The Modern Gaze</strong><em>Then meets now</em><b>↗</b></a>
+    </section>
+
+    <section class="story" id="story">
+      <div class="story-copy reveal">
+        <p class="kicker">The exhibition</p>
+        <h2>Four centuries ago, a portrait was already a kind of interface.</h2>
+        <p>Paint, posture, clothing, and light were arranged to transmit identity. <em>The Luminous Archive</em> follows these visual codes from the Renaissance into our own image-saturated moment.</p>
+        <button class="line-button" data-open="details">Read the curator’s introduction <span>→</span></button>
+      </div>
+      <figure class="poster reveal">
+        <img src="assets/pinterest-louvre-gallery.jpg" alt="A sunlit neoclassical museum sculpture court beneath a glass roof">
+      </figure>
+    </section>
+
+    <section class="collection" id="collection">
+      <div class="section-head">
+        <div><p class="kicker">Selected works</p><h2>Meet the sitters</h2></div>
+        <p>Nine encounters. Nine ways of being seen.<br><small>Select a work to look closer.</small></p>
+      </div>
+      <div class="art-hover-gallery reveal" role="list" aria-label="Exhibited artworks">
+        <button class="hover-art" type="button" role="listitem" aria-label="Portrait of a Man, 1550s" aria-pressed="false"><img src="assets/tintoretto.jpg" alt=""><span class="art-caption"><strong>Portrait of a Man</strong><small>1550s</small></span></button>
+        <button class="hover-art active" type="button" role="listitem" aria-label="Erasmus of Rotterdam, circa 1532" aria-pressed="true"><img src="assets/erasmus.jpg" alt=""><span class="art-caption"><strong>Erasmus of Rotterdam</strong><small>c. 1532</small></span></button>
+        <button class="hover-art" type="button" role="listitem" aria-label="Portrait of a Young Man, circa 1470" aria-pressed="false"><img src="assets/antonello.jpg" alt=""><span class="art-caption"><strong>Portrait of a Young Man</strong><small>c. 1470</small></span></button>
+        <button class="hover-art" type="button" role="listitem" aria-label="Man with a Magnifying Glass, early 1660s" aria-pressed="false"><img src="assets/rembrandt.jpg" alt=""><span class="art-caption"><strong>Man with a Magnifying Glass</strong><small>Early 1660s</small></span></button>
+        <button class="hover-art" type="button" role="listitem" aria-label="Cecilia Gallerani, circa 1489 to 1491" aria-pressed="false"><img src="assets/artwork-05.jpg" alt=""><span class="art-caption"><strong>Cecilia Gallerani</strong><small>c. 1489–1491</small></span></button>
+        <button class="hover-art" type="button" role="listitem" aria-label="La Velata, circa 1514 to 1515" aria-pressed="false"><img src="assets/artwork-06.jpg" alt=""><span class="art-caption"><strong>La Velata</strong><small>c. 1514–1515</small></span></button>
+        <button class="hover-art" type="button" role="listitem" aria-label="Eleonora of Toledo, circa 1545" aria-pressed="false"><img src="assets/artwork-07.jpg" alt=""><span class="art-caption"><strong>Eleonora of Toledo</strong><small>c. 1545</small></span></button>
+        <button class="hover-art" type="button" role="listitem" aria-label="Man with a Glove, circa 1520" aria-pressed="false"><img src="assets/artwork-08.jpg" alt=""><span class="art-caption"><strong>Man with a Glove</strong><small>c. 1520</small></span></button>
+        <button class="hover-art" type="button" role="listitem" aria-label="Anne Lovell, circa 1526 to 1528" aria-pressed="false"><img src="assets/artwork-09.jpg" alt=""><span class="art-caption"><strong>Anne Lovell</strong><small>c. 1526–1528</small></span></button>
+      </div>
+    </section>
+
+    <section class="visit" id="visit">
+      <div class="visit-title"><h2>Come see<br>what sees you.</h2></div>
+      <div class="visit-details">
+        <div><span>When</span><p>3 October 2026<br>31 January 2027</p></div>
+        <div><span>Hours</span><p>Tue–Sun, 10:00–18:00<br>Friday until 21:00</p></div>
+        <div><span>Where</span><p>Luce Museum<br>Koramangala, Bengaluru</p></div>
+        <div><span>Admission</span><p>Adults ₹450<br>Students ₹200</p></div>
+      </div>
+      <button class="button dark" type="button" data-open="reservation">Reserve by email <span>↗</span></button>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-top">
+      <div class="footer-copy"><p class="kicker">Stay curious</p><h2>Art history,<br>delivered slowly.</h2><form id="newsletter"><label for="email">Monthly exhibition letters</label><div><input id="email" type="text" inputmode="email" autocomplete="email" pattern="[^@\s]+@[^@\s]+\.[^@\s]+" required aria-label="Email address" placeholder="Your email address"><button aria-label="Subscribe">→</button></div><p class="form-status" aria-live="polite"></p></form></div>
+      <figure class="footer-location"><img src="assets/location-map.png" alt="Map of Koramangala, Bengaluru, showing the Luce Museum area near St. John’s Hospital and Tavarekere"><span class="map-pin" aria-hidden="true"></span></figure>
+    </div>
+    <div class="footer-bottom"><a class="brand inverse" href="#top"><img class="museum-mark" src="assets/aureum-angels.png" alt=""> luce</a><p>Where old worlds meet new eyes.</p><div><a href="#exhibition">Exhibition</a><a href="#collection">Collection</a><a href="#visit">Visit</a></div><p>© 2026 Luce Museum</p></div>
+  </footer>
+
+  <dialog id="details-dialog">
+    <button class="dialog-close" aria-label="Close">×</button>
+    <h2>Looking is never neutral.</h2>
+    <p>Renaissance artists understood that every portrait stages a negotiation between sitter, maker, and viewer. This exhibition draws that triangle into the present—where every screen has become a frame and every image asks to be read.</p>
+    <p>Across four intimate chapters, details become clues: a fur cuff, a half-smile, a lens held to the light. Slow down. The works will meet you halfway.</p>
+  </dialog>
+
+  <dialog id="art-dialog" class="art-dialog">
+    <button class="dialog-close" aria-label="Close artwork">×</button>
+    <div class="art-dialog-grid"><img src="" alt=""><div><p class="kicker">Selected work</p><h2></h2><p class="art-meta"></p><p class="art-description"></p><a class="line-button source-link" href="#" target="_blank" rel="noreferrer">View museum record <span>↗</span></a></div></div>
+  </dialog>
+
+  <dialog id="reservation-dialog" class="reservation-dialog">
+    <button class="dialog-close" aria-label="Close reservation details">×</button>
+    <p class="kicker">Plan your visit</p>
+    <h2>Reserve by email.</h2>
+    <p>Tell us your preferred date, arrival time, and number of visitors. Your email application will open with the exhibition details prepared.</p>
+    <a class="button dark" href="mailto:visits@lucemuseum.example?subject=L%E2%80%99Archivio%20Luminoso%20visit&amp;body=Preferred%20date%3A%0AArrival%20time%3A%0ANumber%20of%20visitors%3A">Open email draft <span>↗</span></a>
+    <p class="reservation-fallback">If no email application opens, write to <strong>visits@lucemuseum.example</strong>.</p>
+  </dialog>
+  <script src="script.js"></script>
+</body>
+</html>
