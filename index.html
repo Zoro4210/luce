@@ -16,7 +16,7 @@
 <body>
   <a class="skip-link" href="#main">Skip to exhibition</a>
   <header class="site-header">
-    <div class="utility"><span>Open today 10:00–18:00</span><span>Koramangala · Bengaluru</span></div>
+    <div class="utility" aria-hidden="true"></div>
     <div class="nav-wrap">
       <a class="brand" href="#top" aria-label="Luce Museum home"><img class="museum-mark" src="assets/aureum-angels.png" alt=""> luce</a>
       <button class="menu-toggle" aria-expanded="false" aria-controls="main-nav">Menu</button>
@@ -41,9 +41,9 @@
     </section>
 
     <section class="chapters" id="exhibition" aria-label="Exhibition chapters">
-      <a href="#collection"><span class="chapter-index">01</span><span class="chapter-copy"><span class="chapter-language chapter-language-en"><strong>Faces of Humanism</strong><em>Portraits & selfhood</em></span><span class="chapter-language chapter-language-it" aria-hidden="true"><strong>Volti dell’Umanesimo</strong><em>Ritratti e identità</em></span></span><b>↗</b></a>
-      <a href="#collection"><span class="chapter-index">02</span><span class="chapter-copy"><span class="chapter-language chapter-language-en"><strong>Light as Language</strong><em>Gesture & revelation</em></span><span class="chapter-language chapter-language-it" aria-hidden="true"><strong>La luce come linguaggio</strong><em>Gesto e rivelazione</em></span></span><b>↗</b></a>
-      <a href="#story"><span class="chapter-index">03</span><span class="chapter-copy"><span class="chapter-language chapter-language-en"><strong>The Modern Gaze</strong><em>Then meets now</em></span><span class="chapter-language chapter-language-it" aria-hidden="true"><strong>Lo sguardo moderno</strong><em>Ieri incontra oggi</em></span></span><b>↗</b></a>
+      <a href="#collection"><span class="chapter-copy"><span class="chapter-language chapter-language-en"><strong>Faces of Humanism</strong><em>Portraits & selfhood</em></span><span class="chapter-language chapter-language-it" aria-hidden="true"><strong>Volti dell’Umanesimo</strong><em>Ritratti e identità</em></span></span><b>↗</b></a>
+      <a href="#collection"><span class="chapter-copy"><span class="chapter-language chapter-language-en"><strong>Light as Language</strong><em>Gesture & revelation</em></span><span class="chapter-language chapter-language-it" aria-hidden="true"><strong>La luce come linguaggio</strong><em>Gesto e rivelazione</em></span></span><b>↗</b></a>
+      <a href="#story"><span class="chapter-copy"><span class="chapter-language chapter-language-en"><strong>The Modern Gaze</strong><em>Then meets now</em></span><span class="chapter-language chapter-language-it" aria-hidden="true"><strong>Lo sguardo moderno</strong><em>Ieri incontra oggi</em></span></span><b>↗</b></a>
     </section>
 
     <section class="story" id="story">
@@ -77,7 +77,12 @@
     </section>
 
     <section class="visit" id="visit">
-      <div class="visit-title"><h2>Come see<br>what sees you.</h2></div>
+      <figure class="visit-feature">
+        <video autoplay muted loop playsinline preload="auto" aria-hidden="true" tabindex="-1">
+          <source src="assets/visit-film.mp4" type="video/mp4">
+        </video>
+        <figcaption>Come see what sees you.</figcaption>
+      </figure>
       <div class="visit-details">
         <div><span>When</span><p>3 October 2026<br>31 January 2027</p></div>
         <div><span>Hours</span><p>Tue–Sun, 10:00–18:00<br>Friday until 21:00</p></div>
@@ -91,9 +96,21 @@
   <footer>
     <div class="footer-top">
       <div class="footer-copy"><p class="kicker">Stay curious</p><h2>Art history,<br>delivered slowly.</h2><form id="newsletter"><label for="email">Monthly exhibition letters</label><div><input id="email" type="text" inputmode="email" autocomplete="email" pattern="[^@\s]+@[^@\s]+\.[^@\s]+" required aria-label="Email address" placeholder="Your email address"><button aria-label="Subscribe">→</button></div><p class="form-status" aria-live="polite"></p></form></div>
-      <figure class="footer-location"><div class="map-frame"><img src="assets/location-map.png" alt="Map of Koramangala, Bengaluru, showing the Luce Museum area near St. John’s Hospital and Tavarekere"><span class="map-pin" aria-hidden="true"></span></div><figcaption>Find the peace here.</figcaption></figure>
+      <figure class="footer-location">
+        <div class="map-frame"><img src="assets/location-map.png" alt="Map of Koramangala, Bengaluru, showing the Luce Museum area near St. John’s Hospital and Tavarekere"><span class="map-pin" aria-hidden="true"></span></div>
+        <figcaption class="location-utility"><span>Open today 10:00–18:00</span><span>Koramangala · Bengaluru</span></figcaption>
+      </figure>
     </div>
-    <div class="footer-bottom"><a class="brand inverse" href="#top"><img class="museum-mark" src="assets/aureum-angels.png" alt=""> luce</a><p>Where old worlds meet new eyes.</p><div><a href="#exhibition">Exhibition</a><a href="#collection">Collection</a><a href="#visit">Visit</a></div><p>© 2026 Luce Museum</p></div>
+    <div class="footer-bottom">
+      <div class="footer-identity"><a class="brand inverse" href="#top"><img class="museum-mark" src="assets/aureum-angels.png" alt=""> luce</a><p>Where old worlds meet new eyes.</p></div>
+      <nav class="footer-museum-links" aria-label="Museum information">
+        <div><strong>Explore</strong><a href="#exhibition">Exhibitions</a><a href="#collection">Collection</a><a href="#story">Stories</a></div>
+        <div><strong>Visit</strong><a href="#visit">Plan your visit</a><a href="#visit">Tickets &amp; admission</a><a href="#visit">Hours &amp; directions</a></div>
+        <div><strong>Take part</strong><span>Membership</span><span>Donate</span><span>Events &amp; programmes</span></div>
+        <div><strong>About</strong><span>About Luce</span><span>Press</span><span>Careers</span></div>
+      </nav>
+      <div class="footer-meta"><p>© 2026 Luce Museum</p><span>Accessibility</span><span>Privacy</span></div>
+    </div>
   </footer>
 
   <dialog id="details-dialog">
