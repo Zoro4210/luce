@@ -5,136 +5,227 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Luce Museum — L’Archivio Luminoso</title>
   <meta name="description" content="L’Archivio Luminoso brings Renaissance portraiture into conversation with the ways we see, study, and remember today.">
-  <meta name="theme-color" content="#292725">
+  <meta name="theme-color" content="#171614">
   <link rel="icon" type="image/png" href="assets/aureum-angels.png">
   <link rel="apple-touch-icon" href="assets/aureum-angels.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&amp;display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://api.fontshare.com">
+  <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..800;1,6..96,400..700&amp;display=swap" rel="stylesheet">
+  <link href="https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@400,500,700&amp;display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to exhibition</a>
+
   <header class="site-header">
-    <div class="utility">
-      <p class="visitor-notice"><strong>Visitor update</strong><span>Friday late opening · Galleries close at 21:00</span></p>
-    </div>
-    <div class="nav-wrap">
-      <a class="brand" href="#top" aria-label="Luce Museum home"><img class="museum-mark" src="assets/aureum-angels.png" alt=""> luce</a>
-      <button class="menu-toggle" aria-expanded="false" aria-controls="main-nav">Menu</button>
+    <div class="nav-shell">
+      <a class="brand" href="#top" aria-label="Luce Museum home">
+        <img class="museum-mark" src="assets/aureum-angels.png" alt="">
+        <span>luce</span>
+      </a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="main-nav">
+        <span>Menu</span><i aria-hidden="true"></i>
+      </button>
       <nav id="main-nav" aria-label="Main navigation">
-        <a href="#exhibition">Exhibition</a><a href="#collection">Collection</a><a href="#story">About</a><a href="#visit">Visit</a>
+        <a href="#exhibition">Exhibition</a>
+        <a href="#collection">Collection</a>
+        <a href="#story">The idea</a>
+        <a href="#visit">Visit</a>
       </nav>
-      <a class="ticket-link" href="#visit">Plan your visit <span>↗</span></a>
+      <a class="ticket-link" href="#visit">Plan your visit <span aria-hidden="true">↗</span></a>
     </div>
   </header>
 
   <main id="main">
     <section class="hero" id="top" aria-labelledby="hero-title">
-      <div class="hero-image" role="img" aria-label="Grand neoclassical museum rotunda with sculpted reliefs and portrait busts"></div>
-      <div class="hero-grid" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
       <div class="hero-copy">
-        <p class="eyebrow">Special exhibition · Gallery I–IV</p>
-        <h1 id="hero-title">L’Archivio<br><em>Luminoso</em></h1>
-        <p class="intro">Portraits, private worlds, and the quiet technologies that changed how we look.</p>
-        <div class="hero-actions"><a class="button light" href="#collection">Enter the exhibition</a><button class="text-button" data-open="details">Curator’s note <span>→</span></button></div>
+        <p class="eyebrow">Luce Museum · Bengaluru</p>
+        <h1 id="hero-title">
+          <span>L’Archivio</span>
+          <span><em>Luminoso</em></span>
+        </h1>
+        <div class="hero-intro-row">
+          <p class="intro">Portraits, private worlds, and the quiet technologies that changed how we look.</p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="#collection">Enter the exhibition</a>
+            <button class="text-button" type="button" data-open="details">Curator’s note <span aria-hidden="true">→</span></button>
+          </div>
+        </div>
       </div>
-      <div class="date-seal"><span>03 OCT 2026</span><strong>—</strong><span>31 JAN 2027</span></div>
-    </section>
 
-    <section class="chapters" id="exhibition" aria-label="Exhibition chapters">
-      <a href="#collection"><span class="chapter-copy"><span class="chapter-language chapter-language-en"><strong>Faces of Humanism</strong><em>Portraits & selfhood</em></span><span class="chapter-language chapter-language-it" aria-hidden="true"><strong>Volti dell’Umanesimo</strong><em>Ritratti e identità</em></span></span><b>↗</b></a>
-      <a href="#collection"><span class="chapter-copy"><span class="chapter-language chapter-language-en"><strong>Light as Language</strong><em>Gesture & revelation</em></span><span class="chapter-language chapter-language-it" aria-hidden="true"><strong>La luce come linguaggio</strong><em>Gesto e rivelazione</em></span></span><b>↗</b></a>
-      <a href="#story"><span class="chapter-copy"><span class="chapter-language chapter-language-en"><strong>The Modern Gaze</strong><em>Then meets now</em></span><span class="chapter-language chapter-language-it" aria-hidden="true"><strong>Lo sguardo moderno</strong><em>Ieri incontra oggi</em></span></span><b>↗</b></a>
-    </section>
-
-    <section class="story" id="story">
-      <div class="story-copy reveal">
-        <p class="kicker">The exhibition</p>
-        <h2>Four centuries ago, a portrait was already a kind of interface.</h2>
-        <p>Paint, posture, clothing, and light were arranged to transmit identity. <em>L’Archivio Luminoso</em> follows these visual codes from the Renaissance into our own image-saturated moment.</p>
-        <button class="line-button" data-open="details">Read the curator’s introduction <span>→</span></button>
-      </div>
-      <figure class="poster reveal">
-        <img src="assets/pinterest-louvre-gallery.jpg" alt="A sunlit neoclassical museum sculpture court beneath a glass roof">
+      <figure class="hero-visual">
+        <div class="hero-image" role="img" aria-label="Grand neoclassical museum rotunda with sculpted reliefs and portrait busts"></div>
+        <figcaption>
+          <span>Light study</span>
+          <span>Gallery I</span>
+        </figcaption>
       </figure>
+
+      <div class="hero-date" aria-label="Exhibition dates 3 October 2026 to 31 January 2027">
+        <span>03.10.26</span><i aria-hidden="true"></i><span>31.01.27</span>
+      </div>
+      <p class="scroll-cue">Scroll to enter <span aria-hidden="true">↓</span></p>
     </section>
 
-    <section class="collection" id="collection">
-      <div class="section-head">
-        <div><p class="kicker">Selected works</p><h2>Meet the sitters</h2></div>
-        <p>Nine encounters. Nine ways of being seen.<br><small>Select a work to look closer.</small></p>
+    <div class="exhibition-marquee" aria-label="Special exhibition information">
+      <div class="marquee-track">
+        <span>Special exhibition</span><i></i><span>Gallery I–IV</span><i></i><span>Renaissance portraiture</span><i></i><span>Open Tuesday–Sunday</span><i></i>
+        <span aria-hidden="true">Special exhibition</span><i aria-hidden="true"></i><span aria-hidden="true">Gallery I–IV</span><i aria-hidden="true"></i><span aria-hidden="true">Renaissance portraiture</span><i aria-hidden="true"></i><span aria-hidden="true">Open Tuesday–Sunday</span><i aria-hidden="true"></i>
       </div>
-      <div class="art-hover-gallery reveal" role="list" aria-label="Exhibited artworks">
-        <button class="hover-art" type="button" role="listitem" aria-label="Portrait of a Man, 1550s" aria-pressed="false"><img src="assets/tintoretto.jpg" alt=""><span class="art-caption"><strong>Portrait of a Man</strong><small>1550s</small></span></button>
-        <button class="hover-art active" type="button" role="listitem" aria-label="Erasmus of Rotterdam, circa 1532" aria-pressed="true"><img src="assets/erasmus.jpg" alt=""><span class="art-caption"><strong>Erasmus of Rotterdam</strong><small>c. 1532</small></span></button>
-        <button class="hover-art" type="button" role="listitem" aria-label="Portrait of a Young Man, circa 1470" aria-pressed="false"><img src="assets/antonello.jpg" alt=""><span class="art-caption"><strong>Portrait of a Young Man</strong><small>c. 1470</small></span></button>
-        <button class="hover-art" type="button" role="listitem" aria-label="Man with a Magnifying Glass, early 1660s" aria-pressed="false"><img src="assets/rembrandt.jpg" alt=""><span class="art-caption"><strong>Man with a Magnifying Glass</strong><small>Early 1660s</small></span></button>
-        <button class="hover-art" type="button" role="listitem" aria-label="Cecilia Gallerani, circa 1489 to 1491" aria-pressed="false"><img src="assets/artwork-05.jpg" alt=""><span class="art-caption"><strong>Cecilia Gallerani</strong><small>c. 1489–1491</small></span></button>
-        <button class="hover-art" type="button" role="listitem" aria-label="La Velata, circa 1514 to 1515" aria-pressed="false"><img src="assets/artwork-06.jpg" alt=""><span class="art-caption"><strong>La Velata</strong><small>c. 1514–1515</small></span></button>
-        <button class="hover-art" type="button" role="listitem" aria-label="Eleonora of Toledo, circa 1545" aria-pressed="false"><img src="assets/artwork-07.jpg" alt=""><span class="art-caption"><strong>Eleonora of Toledo</strong><small>c. 1545</small></span></button>
-        <button class="hover-art" type="button" role="listitem" aria-label="Man with a Glove, circa 1520" aria-pressed="false"><img src="assets/artwork-08.jpg" alt=""><span class="art-caption"><strong>Man with a Glove</strong><small>c. 1520</small></span></button>
-        <button class="hover-art" type="button" role="listitem" aria-label="Anne Lovell, circa 1526 to 1528" aria-pressed="false"><img src="assets/artwork-09.jpg" alt=""><span class="art-caption"><strong>Anne Lovell</strong><small>c. 1526–1528</small></span></button>
+    </div>
+
+    <section class="exhibition" id="exhibition" aria-labelledby="exhibition-title">
+      <div class="section-intro reveal">
+        <p class="kicker">The exhibition</p>
+        <h2 id="exhibition-title">Every portrait is a technology of attention.</h2>
+        <p>Four intimate chapters trace how identity was composed, illuminated, and remembered long before the screen.</p>
+      </div>
+
+      <div class="chapter-bento">
+        <a class="chapter-card chapter-image" href="#collection">
+          <img src="assets/erasmus.jpg" alt="Painted portrait of Erasmus of Rotterdam">
+          <span class="chapter-overlay"><strong>Faces of Humanism</strong><em>Portraits and selfhood</em></span>
+          <b aria-hidden="true">↗</b>
+        </a>
+        <a class="chapter-card chapter-wide" href="#story">
+          <span><strong>Light as language</strong><em>Gesture, surface, revelation</em></span>
+          <b aria-hidden="true">↗</b>
+        </a>
+        <a class="chapter-card chapter-small chapter-oxblood" href="#story">
+          <span><strong>The private world</strong><em>Objects become clues</em></span>
+          <b aria-hidden="true">↗</b>
+        </a>
+        <a class="chapter-card chapter-small chapter-paper" href="#collection">
+          <span><strong>The modern gaze</strong><em>Then meets now</em></span>
+          <b aria-hidden="true">↗</b>
+        </a>
       </div>
     </section>
 
-    <section class="visit" id="visit">
-      <figure class="visit-feature">
-        <video autoplay muted loop playsinline preload="auto" aria-hidden="true" tabindex="-1">
+    <section class="story" id="story" aria-labelledby="story-title">
+      <div class="story-heading">
+        <p class="kicker">Ways of seeing</p>
+        <h2 id="story-title">Looking is<br><em>never neutral.</em></h2>
+        <p class="story-lede word-reveal">Paint, posture, clothing, and light were arranged to transmit identity. The archive follows those visual codes into our image-saturated present.</p>
+        <button class="line-button" type="button" data-open="details">Read the curator’s introduction <span aria-hidden="true">→</span></button>
+      </div>
+
+      <div class="story-panels">
+        <article class="story-panel">
+          <figure><img src="assets/pinterest-louvre-gallery.jpg" alt="A sunlit neoclassical sculpture court beneath a glass roof"></figure>
+          <div><span>Observe</span><h3>Light directs the eye.</h3><p>Brightness was never simply atmosphere. It told viewers where meaning lived.</p></div>
+        </article>
+        <article class="story-panel">
+          <figure><img src="assets/erasmus-writing.jpg" alt="Erasmus of Rotterdam writing at his desk beside books and a pair of scissors"></figure>
+          <div><span>Decode</span><h3>Objects speak quietly.</h3><p>A lens, a letter, a fur cuff: private details become public signals.</p></div>
+        </article>
+        <article class="story-panel">
+          <figure><img src="assets/antonello.jpg" alt="Portrait of a young man looking directly at the viewer"></figure>
+          <div><span>Return the gaze</span><h3>The sitter looks back.</h3><p>The most enduring portraits turn observation into a meeting between equals.</p></div>
+        </article>
+      </div>
+    </section>
+
+    <section class="collection" id="collection" aria-labelledby="collection-title">
+      <div class="collection-head reveal">
+        <div>
+          <p class="kicker">Selected works</p>
+          <h2 id="collection-title">Meet the sitters</h2>
+        </div>
+        <p>Nine encounters. Nine ways of being seen. Hover or focus to open a work; select it to look closer.</p>
+      </div>
+
+      <div class="art-accordion reveal" role="list" aria-label="Exhibited artworks">
+        <button class="art-panel" type="button" data-art="0" aria-label="Portrait of a Man, 1550s" aria-pressed="false"><img src="assets/tintoretto.jpg" alt=""><span><strong>Portrait of a Man</strong><small>1550s</small></span></button>
+        <button class="art-panel active" type="button" data-art="1" aria-label="Erasmus of Rotterdam, circa 1532" aria-pressed="true"><img src="assets/erasmus.jpg" alt=""><span><strong>Erasmus of Rotterdam</strong><small>c. 1532</small></span></button>
+        <button class="art-panel" type="button" data-art="2" aria-label="Portrait of a Young Man, circa 1470" aria-pressed="false"><img src="assets/antonello.jpg" alt=""><span><strong>Portrait of a Young Man</strong><small>c. 1470</small></span></button>
+        <button class="art-panel" type="button" data-art="3" aria-label="Man with a Magnifying Glass, early 1660s" aria-pressed="false"><img src="assets/rembrandt.jpg" alt=""><span><strong>Man with a Magnifying Glass</strong><small>Early 1660s</small></span></button>
+        <button class="art-panel" type="button" data-art="4" aria-label="Cecilia Gallerani, circa 1489 to 1491" aria-pressed="false"><img src="assets/artwork-05.jpg" alt=""><span><strong>Cecilia Gallerani</strong><small>c. 1489–1491</small></span></button>
+        <button class="art-panel" type="button" data-art="5" aria-label="La Velata, circa 1514 to 1515" aria-pressed="false"><img src="assets/artwork-06.jpg" alt=""><span><strong>La Velata</strong><small>c. 1514–1515</small></span></button>
+        <button class="art-panel" type="button" data-art="6" aria-label="Eleonora of Toledo, circa 1545" aria-pressed="false"><img src="assets/artwork-07.jpg" alt=""><span><strong>Eleonora of Toledo</strong><small>c. 1545</small></span></button>
+        <button class="art-panel" type="button" data-art="7" aria-label="Man with a Glove, circa 1520" aria-pressed="false"><img src="assets/artwork-08.jpg" alt=""><span><strong>Man with a Glove</strong><small>c. 1520</small></span></button>
+        <button class="art-panel" type="button" data-art="8" aria-label="Anne Lovell, circa 1526 to 1528" aria-pressed="false"><img src="assets/artwork-09.jpg" alt=""><span><strong>Anne Lovell</strong><small>c. 1526–1528</small></span></button>
+      </div>
+
+      <p class="collection-statement">Light becomes <span class="inline-art" role="img" aria-label="detail of a Renaissance portrait"></span> language.</p>
+    </section>
+
+    <section class="visit" id="visit" aria-labelledby="visit-title">
+      <figure class="visit-film">
+        <video autoplay muted loop playsinline preload="metadata" aria-hidden="true" tabindex="-1">
           <source src="assets/visit-film.mp4" type="video/mp4">
         </video>
         <figcaption>Come see what sees you.</figcaption>
       </figure>
-      <div class="visit-details">
-        <div><span>When</span><p>3 October 2026<br>31 January 2027</p></div>
-        <div><span>Hours</span><p>Tue–Sun, 10:00–18:00<br>Friday until 21:00</p></div>
-        <div><span>Where</span><p>Luce Museum<br>Koramangala, Bengaluru</p></div>
-        <div><span>Admission</span><p>Adults ₹450<br>Students ₹200</p></div>
+
+      <div class="visit-copy">
+        <p class="kicker">Plan your visit</p>
+        <h2 id="visit-title">Stand before<br>the real thing.</h2>
+        <div class="visit-details">
+          <div><span>When</span><p>3 October 2026<br>31 January 2027</p></div>
+          <div><span>Hours</span><p>Tue–Sun, 10:00–18:00<br>Friday until 21:00</p></div>
+          <div><span>Where</span><p>Luce Museum<br>Koramangala, Bengaluru</p></div>
+          <div><span>Admission</span><p>Adults ₹450<br>Students ₹200</p></div>
+        </div>
+        <button class="button button-light" type="button" data-open="reservation">Reserve by email <span aria-hidden="true">↗</span></button>
       </div>
-      <button class="button dark" type="button" data-open="reservation">Reserve by email <span>↗</span></button>
     </section>
   </main>
 
   <footer>
-    <div class="footer-top">
-      <div class="footer-copy"><p class="kicker">Stay curious</p><h2>Art history,<br>delivered slowly.</h2><form id="newsletter"><label for="email">Monthly exhibition letters</label><div><input id="email" type="text" inputmode="email" autocomplete="email" pattern="[^@\s]+@[^@\s]+\.[^@\s]+" required aria-label="Email address" placeholder="Your email address"><button aria-label="Subscribe">→</button></div><p class="form-status" aria-live="polite"></p></form></div>
+    <div class="footer-letter">
+      <div class="footer-copy">
+        <p class="kicker">Stay curious</p>
+        <h2>Art history,<br><em>delivered slowly.</em></h2>
+        <form id="newsletter">
+          <label for="email">Monthly exhibition letters</label>
+          <div><input id="email" type="email" autocomplete="email" required aria-label="Email address" placeholder="Your email address"><button type="submit" aria-label="Subscribe">→</button></div>
+          <p class="form-status" aria-live="polite"></p>
+        </form>
+      </div>
       <figure class="footer-location">
-        <div class="map-frame"><img src="assets/location-map.png" alt="Map of Koramangala, Bengaluru, showing the Luce Museum area near St. John’s Hospital and Tavarekere"><span class="map-pin" aria-hidden="true"></span></div>
-        <figcaption class="location-utility"><span>Open today 10:00–18:00</span><span>Koramangala · Bengaluru</span></figcaption>
+        <div class="map-frame"><img src="assets/location-map.png" alt="Map of Koramangala, Bengaluru, showing the Luce Museum area"><span class="map-pin" aria-hidden="true"></span></div>
+        <figcaption><span>Open today 10:00–18:00</span><span>Koramangala · Bengaluru</span></figcaption>
       </figure>
     </div>
+
     <div class="footer-bottom">
-      <div class="footer-identity"><a class="brand inverse" href="#top"><img class="museum-mark" src="assets/aureum-angels.png" alt=""> luce</a></div>
-      <nav class="footer-museum-links" aria-label="Museum information">
-        <div><strong>Explore</strong><a href="#exhibition">Exhibitions</a><a href="#collection">Collection</a><a href="#story">Stories</a></div>
-        <div><strong>Visit</strong><a href="#visit">Plan your visit</a><a href="#visit">Tickets &amp; admission</a><a href="#visit">Hours &amp; directions</a></div>
-        <div><strong>Take part</strong><span>Membership</span><span>Donate</span><span>Events &amp; programmes</span></div>
-        <div><strong>About</strong><span>About Luce</span><span>Press</span><span>Careers</span></div>
+      <a class="brand brand-footer" href="#top" aria-label="Luce Museum home"><img class="museum-mark" src="assets/aureum-angels.png" alt=""><span>luce</span></a>
+      <nav class="footer-links" aria-label="Museum information">
+        <div><strong>Explore</strong><a href="#exhibition">Exhibition</a><a href="#collection">Collection</a><a href="#story">Stories</a></div>
+        <div><strong>Visit</strong><a href="#visit">Plan your visit</a><a href="#visit">Tickets and admission</a><a href="#visit">Hours and directions</a></div>
+        <div><strong>Take part</strong><span>Membership</span><span>Donate</span><span>Events and programmes</span></div>
+        <div><strong>Museum</strong><span>About Luce</span><span>Press</span><span>Careers</span></div>
       </nav>
-      <div class="footer-meta"><p>© 2026 Luce Museum</p><span>Accessibility</span><span>Privacy</span></div>
+      <div class="footer-meta"><p>© 2026 Luce Museum</p><span>Accessibility</span><span>Privacy</span><a href="#top">Back to top ↑</a></div>
     </div>
   </footer>
 
   <dialog id="details-dialog">
-    <button class="dialog-close" aria-label="Close">×</button>
+    <button class="dialog-close" type="button" aria-label="Close">×</button>
+    <p class="kicker">Curator’s introduction</p>
     <h2>Looking is never neutral.</h2>
     <p>Renaissance artists understood that every portrait stages a negotiation between sitter, maker, and viewer. This exhibition draws that triangle into the present—where every screen has become a frame and every image asks to be read.</p>
     <p>Across four intimate chapters, details become clues: a fur cuff, a half-smile, a lens held to the light. Slow down. The works will meet you halfway.</p>
   </dialog>
 
   <dialog id="art-dialog" class="art-dialog">
-    <button class="dialog-close" aria-label="Close artwork">×</button>
-    <div class="art-dialog-grid"><img src="" alt=""><div><p class="kicker">Selected work</p><h2></h2><p class="art-meta"></p><p class="art-description"></p><a class="line-button source-link" href="#" target="_blank" rel="noreferrer">View museum record <span>↗</span></a></div></div>
+    <button class="dialog-close" type="button" aria-label="Close artwork">×</button>
+    <div class="art-dialog-grid"><img src="" alt=""><div><p class="kicker">Selected work</p><h2></h2><p class="art-meta"></p><p class="art-description"></p><a class="line-button source-link" href="#" target="_blank" rel="noreferrer">View museum record <span aria-hidden="true">↗</span></a></div></div>
   </dialog>
 
   <dialog id="reservation-dialog" class="reservation-dialog">
-    <button class="dialog-close" aria-label="Close reservation details">×</button>
+    <button class="dialog-close" type="button" aria-label="Close reservation details">×</button>
     <p class="kicker">Plan your visit</p>
     <h2>Reserve by email.</h2>
     <p>Tell us your preferred date, arrival time, and number of visitors. Your email application will open with the exhibition details prepared.</p>
-    <a class="button dark" href="mailto:visits@lucemuseum.example?subject=L%E2%80%99Archivio%20Luminoso%20visit&amp;body=Preferred%20date%3A%0AArrival%20time%3A%0ANumber%20of%20visitors%3A">Open email draft <span>↗</span></a>
+    <a class="button button-dark" href="mailto:visits@lucemuseum.example?subject=L%E2%80%99Archivio%20Luminoso%20visit&amp;body=Preferred%20date%3A%0AArrival%20time%3A%0ANumber%20of%20visitors%3A">Open email draft <span aria-hidden="true">↗</span></a>
     <p class="reservation-fallback">If no email application opens, write to <strong>visits@lucemuseum.example</strong>.</p>
   </dialog>
+
+  <script src="assets/vendor/gsap.min.js"></script>
+  <script src="assets/vendor/ScrollTrigger.min.js"></script>
   <script src="script.js"></script>
 </body>
 </html>

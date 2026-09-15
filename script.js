@@ -1,274 +1,249 @@
-const details = document.querySelector('#details-dialog');
-document.querySelectorAll('[data-open="details"]').forEach(button => button.addEventListener('click', () => details.showModal()));
-const reservation = document.querySelector('#reservation-dialog');
-document.querySelectorAll('[data-open="reservation"]').forEach(button => button.addEventListener('click', () => reservation.showModal()));
-document.querySelectorAll('dialog .dialog-close').forEach(button => button.addEventListener('click', () => button.closest('dialog').close()));
-document.querySelectorAll('dialog').forEach(dialog => dialog.addEventListener('click', event => {
-  const box = dialog.getBoundingClientRect();
-  if (event.clientX < box.left || event.clientX > box.right || event.clientY < box.top || event.clientY > box.bottom) dialog.close();
-}));
+const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+const detailsDialog = document.querySelector('#details-dialog');
+const reservationDialog = document.querySelector('#reservation-dialog');
+const artDialog = document.querySelector('#art-dialog');
+
+const openDialog = dialog => {
+  if (dialog && !dialog.open) dialog.showModal();
+};
+
+document.querySelectorAll('[data-open="details"]').forEach(button => {
+  button.addEventListener('click', () => openDialog(detailsDialog));
+});
+
+document.querySelectorAll('[data-open="reservation"]').forEach(button => {
+  button.addEventListener('click', () => openDialog(reservationDialog));
+});
+
+document.querySelectorAll('dialog .dialog-close').forEach(button => {
+  button.addEventListener('click', () => button.closest('dialog').close());
+});
+
+document.querySelectorAll('dialog').forEach(dialog => {
+  dialog.addEventListener('click', event => {
+    const box = dialog.getBoundingClientRect();
+    const outside = event.clientX < box.left || event.clientX > box.right || event.clientY < box.top || event.clientY > box.bottom;
+    if (outside) dialog.close();
+  });
+});
 
 const works = [
-  {title:'Portrait of a Man', meta:'Jacopo Tintoretto · 1550s · Oil on canvas', image:'assets/tintoretto.jpg', text:'A merchant meets our gaze with startling directness. Tintoretto’s quick, assured brushwork gives stillness a charge of living thought.', url:'https://www.metmuseum.org/art/collection/search/437822'},
-  {title:'Erasmus of Rotterdam', meta:'Hans Holbein the Younger and Workshop · c. 1532 · Oil on linden panel', image:'assets/erasmus.jpg', text:'Holbein’s small, searching portrait locates the scholar’s intellectual intensity not in symbols, but in a face observed without flattery.', url:'https://www.metmuseum.org/art/collection/search/459080'},
-  {title:'Portrait of a Young Man', meta:'Antonello da Messina · c. 1470 · Oil on wood', image:'assets/antonello.jpg', text:'A half-smile and unwavering gaze suggest an inner life just beyond reach. Antonello turns portraiture into an encounter between equals.', url:'https://www.metmuseum.org/art/collection/search/435581'},
-  {title:'Man with a Magnifying Glass', meta:'Rembrandt van Rijn · early 1660s · Oil on canvas', image:'assets/rembrandt.jpg', text:'Light travels across face, hand, and lens. The likely auctioneer does not simply look—he appraises, reminding us that seeing has always carried value.', url:'https://www.metmuseum.org/art/collection/search/437399'}
+  {
+    title: 'Portrait of a Man',
+    meta: 'Jacopo Tintoretto · 1550s · Oil on canvas',
+    image: 'assets/tintoretto.jpg',
+    text: 'A merchant meets our gaze with startling directness. Tintoretto’s quick, assured brushwork gives stillness the charge of living thought.',
+    url: 'https://www.metmuseum.org/art/collection/search/437822'
+  },
+  {
+    title: 'Erasmus of Rotterdam',
+    meta: 'Hans Holbein the Younger and Workshop · c. 1532 · Oil on linden panel',
+    image: 'assets/erasmus.jpg',
+    text: 'Holbein’s searching portrait locates the scholar’s intellectual intensity not in symbols, but in a face observed without flattery.',
+    url: 'https://www.metmuseum.org/art/collection/search/459080'
+  },
+  {
+    title: 'Portrait of a Young Man',
+    meta: 'Antonello da Messina · c. 1470 · Oil on wood',
+    image: 'assets/antonello.jpg',
+    text: 'A half-smile and unwavering gaze suggest an inner life just beyond reach. Antonello turns portraiture into an encounter between equals.',
+    url: 'https://www.metmuseum.org/art/collection/search/435581'
+  },
+  {
+    title: 'Man with a Magnifying Glass',
+    meta: 'Rembrandt van Rijn · early 1660s · Oil on canvas',
+    image: 'assets/rembrandt.jpg',
+    text: 'Light travels across face, hand, and lens. The likely auctioneer does not simply look—he appraises, reminding us that seeing has always carried value.',
+    url: 'https://www.metmuseum.org/art/collection/search/437399'
+  },
+  {
+    title: 'Cecilia Gallerani',
+    meta: 'Leonardo da Vinci · c. 1489–1491 · Oil on walnut panel',
+    image: 'assets/artwork-05.jpg',
+    text: 'Turning just beyond the frame, Cecilia seems to respond to someone entering the room. The portrait catches identity in motion rather than repose.'
+  },
+  {
+    title: 'La Velata',
+    meta: 'Raphael · c. 1514–1515 · Oil on canvas',
+    image: 'assets/artwork-06.jpg',
+    text: 'Silk, skin, and shadow are rendered with equal attention. The sitter’s quiet poise makes material splendor feel intimate rather than ceremonial.'
+  },
+  {
+    title: 'Eleonora of Toledo',
+    meta: 'Agnolo Bronzino · c. 1545 · Oil on panel',
+    image: 'assets/artwork-07.jpg',
+    text: 'The precise brocade becomes an architecture of status. Bronzino constructs a public image whose controlled surface is itself the subject.'
+  },
+  {
+    title: 'Man with a Glove',
+    meta: 'Titian · c. 1520 · Oil on canvas',
+    image: 'assets/artwork-08.jpg',
+    text: 'A gloved hand rests against darkness while the ungloved hand remains visible. Titian balances social polish with a quietly psychological presence.'
+  },
+  {
+    title: 'Anne Lovell',
+    meta: 'Hans Holbein the Younger · c. 1526–1528 · Oil and tempera on oak',
+    image: 'assets/artwork-09.jpg',
+    text: 'A small animal and carefully observed dress carry private associations. Holbein lets personal detail complicate the formality of the pose.'
+  }
 ];
-const artDialog = document.querySelector('#art-dialog');
-document.querySelectorAll('[data-art]').forEach(card => card.addEventListener('click', () => {
-  const work = works[Number(card.dataset.art)];
-  artDialog.querySelector('img').src = work.image;
-  artDialog.querySelector('img').alt = work.title;
+
+const artPanels = Array.from(document.querySelectorAll('.art-panel'));
+
+const activateArtwork = panel => {
+  artPanels.forEach(item => {
+    const active = item === panel;
+    item.classList.toggle('active', active);
+    item.setAttribute('aria-pressed', String(active));
+  });
+
+  if (window.innerWidth <= 760) {
+    panel.scrollIntoView({ behavior: reducedMotion ? 'auto' : 'smooth', block: 'nearest', inline: 'center' });
+  }
+};
+
+const showArtwork = index => {
+  const work = works[index];
+  if (!work || !artDialog) return;
+
+  const image = artDialog.querySelector('img');
+  const source = artDialog.querySelector('.source-link');
+  image.src = work.image;
+  image.alt = work.title;
   artDialog.querySelector('h2').textContent = work.title;
   artDialog.querySelector('.art-meta').textContent = work.meta;
   artDialog.querySelector('.art-description').textContent = work.text;
-  artDialog.querySelector('.source-link').href = work.url;
-  artDialog.showModal();
-}));
 
-const toggle = document.querySelector('.menu-toggle');
-const nav = document.querySelector('#main-nav');
-toggle.addEventListener('click', () => {
-  const open = toggle.getAttribute('aria-expanded') === 'true';
-  toggle.setAttribute('aria-expanded', String(!open));
-  nav.classList.toggle('open', !open);
-});
-nav.querySelectorAll('a').forEach(link => link.addEventListener('click', () => { nav.classList.remove('open'); toggle.setAttribute('aria-expanded','false'); }));
-
-const observer = new IntersectionObserver(entries => entries.forEach(entry => {
-  if (entry.isIntersecting) { entry.target.classList.add('visible'); observer.unobserve(entry.target); }
-}), {threshold:.12});
-document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-
-document.querySelector('#newsletter').addEventListener('submit', event => {
-  event.preventDefault();
-  const status = event.currentTarget.querySelector('.form-status');
-  status.textContent = 'You’re on the list. Your first letter arrives next month.';
-  const input = event.currentTarget.querySelector('input');
-  input.value = '';
-  input.dispatchEvent(new Event('input'));
-});
-
-const GLITCH_CHARS = Array.from('.,·-─~+:;=*π"┐┌┘┴┬╗╔╝╚╬╠╣╩╦║░▒▓█▄▀▌▐■!?&#$@0123456789*');
-const WAVE_THRESHOLD = 3;
-const CHARACTER_MULTIPLIER = 3;
-const ANIMATION_STEP = 40;
-const WAVE_BUFFER = 5;
-
-function initAsciiRipple(element, duration = 1000, spread = 1) {
-  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-
-  const walker = document.createTreeWalker(element, NodeFilter.SHOW_TEXT);
-  const segments = [];
-  let totalLength = 0;
-  let node;
-
-  while ((node = walker.nextNode())) {
-    if (!node.nodeValue || !node.nodeValue.trim()) continue;
-    const original = node.nodeValue;
-    segments.push({node, original, offset: totalLength});
-    totalLength += original.length;
+  if (work.url) {
+    source.href = work.url;
+    source.hidden = false;
+  } else {
+    source.hidden = true;
   }
-  if (!totalLength) return;
 
-  const originalLabel = segments.map(segment => segment.original.trim()).join(' ');
-  if (!element.hasAttribute('aria-label')) element.setAttribute('aria-label', originalLabel);
-  element.classList.add('ascii-ripple');
+  openDialog(artDialog);
+};
 
-  const state = {
-    active: false,
-    hovering: false,
-    cursorPosition: 0,
-    waves: [],
-    animationId: null,
-    lockedWidth: null
-  };
-
-  const restore = () => {
-    segments.forEach(segment => { segment.node.nodeValue = segment.original; });
-    element.classList.remove('is-glitching');
-    if (state.lockedWidth !== null) {
-      element.style.width = '';
-      state.lockedWidth = null;
-    }
-    state.active = false;
-    if (state.animationId !== null) cancelAnimationFrame(state.animationId);
-    state.animationId = null;
-  };
-
-  const updateCursorPosition = event => {
-    const rect = element.getBoundingClientRect();
-    const position = Math.round(((event.clientX - rect.left) / rect.width) * totalLength);
-    state.cursorPosition = Math.max(0, Math.min(position, totalLength - 1));
-  };
-
-  const characterAt = (originalCharacter, characterIndex, time) => {
-    if (originalCharacter === ' ') return originalCharacter;
-    let result = originalCharacter;
-
-    for (const wave of state.waves) {
-      const age = time - wave.startedAt;
-      const progress = Math.min(age / duration, 1);
-      const distance = Math.abs(characterIndex - wave.startPosition);
-      const maximumDistance = Math.max(
-        wave.startPosition,
-        totalLength - wave.startPosition - 1
-      );
-      const radius = (progress * (maximumDistance + WAVE_BUFFER)) / spread;
-      const intensity = Math.max(0, radius - distance);
-
-      if (distance <= radius && intensity > 0 && intensity <= WAVE_THRESHOLD) {
-        const characterSetIndex =
-          (distance * CHARACTER_MULTIPLIER + Math.floor(age / ANIMATION_STEP)) % GLITCH_CHARS.length;
-        result = GLITCH_CHARS[characterSetIndex];
-      }
-    }
-    return result;
-  };
-
-  const animate = time => {
-    state.waves = state.waves.filter(wave => time - wave.startedAt < duration);
-    if (!state.waves.length) {
-      restore();
-      return;
-    }
-
-    segments.forEach(segment => {
-      segment.node.nodeValue = Array.from(segment.original)
-        .map((character, index) => characterAt(character, segment.offset + index, time))
-        .join('');
-    });
-    state.animationId = requestAnimationFrame(animate);
-  };
-
-  const start = () => {
-    if (state.active) return;
-    state.active = true;
-    element.classList.add('is-glitching');
-    if (element.matches('.line-button')) {
-      state.lockedWidth = element.getBoundingClientRect().width;
-      element.style.width = `${state.lockedWidth}px`;
-    }
-    state.animationId = requestAnimationFrame(animate);
-  };
-
-  const startWave = () => {
-    state.waves.push({startPosition: state.cursorPosition, startedAt: performance.now()});
-    start();
-  };
-
-  element.addEventListener('mouseenter', event => {
-    state.hovering = true;
-    updateCursorPosition(event);
-    startWave();
+artPanels.forEach((panel, index) => {
+  panel.addEventListener('mouseenter', () => activateArtwork(panel));
+  panel.addEventListener('focus', () => activateArtwork(panel));
+  panel.addEventListener('click', () => {
+    activateArtwork(panel);
+    showArtwork(Number(panel.dataset.art));
   });
-  element.addEventListener('mousemove', event => {
-    if (!state.hovering) return;
-    const previousPosition = state.cursorPosition;
-    updateCursorPosition(event);
-    if (previousPosition !== state.cursorPosition) startWave();
+  panel.addEventListener('keydown', event => {
+    if (!['ArrowLeft', 'ArrowRight'].includes(event.key)) return;
+    event.preventDefault();
+    const direction = event.key === 'ArrowRight' ? 1 : -1;
+    artPanels[(index + direction + artPanels.length) % artPanels.length].focus();
   });
-  element.addEventListener('mouseleave', () => { state.hovering = false; });
-  element.addEventListener('focus', () => {
-    state.cursorPosition = Math.floor(totalLength / 2);
-    startWave();
+});
+
+const menuToggle = document.querySelector('.menu-toggle');
+const mainNav = document.querySelector('#main-nav');
+
+menuToggle.addEventListener('click', () => {
+  const open = menuToggle.getAttribute('aria-expanded') === 'true';
+  menuToggle.setAttribute('aria-expanded', String(!open));
+  mainNav.classList.toggle('open', !open);
+  menuToggle.querySelector('span').textContent = open ? 'Menu' : 'Close';
+});
+
+mainNav.querySelectorAll('a').forEach(link => {
+  link.addEventListener('click', () => {
+    mainNav.classList.remove('open');
+    menuToggle.setAttribute('aria-expanded', 'false');
+    menuToggle.querySelector('span').textContent = 'Menu';
   });
-}
+});
 
-function initSmoothInput(input) {
-  const wrapper = input.parentElement;
-  const caret = document.createElement('span');
-  caret.className = 'smooth-input-caret';
-  caret.setAttribute('aria-hidden', 'true');
-  wrapper.append(caret);
-  input.classList.add('smooth-input');
-  const measureContext = document.createElement('canvas').getContext('2d');
+const revealObserver = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (!entry.isIntersecting) return;
+    entry.target.classList.add('visible');
+    revealObserver.unobserve(entry.target);
+  });
+}, { threshold: .12 });
 
-  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  const syncCaret = () => {
-    if (document.activeElement !== input) return;
-    const selectionStart = Number.isInteger(input.selectionStart) ? input.selectionStart : input.value.length;
-    const selectionEnd = Number.isInteger(input.selectionEnd) ? input.selectionEnd : selectionStart;
-    if (selectionStart !== selectionEnd) {
-      caret.style.opacity = '0';
-      return;
-    }
+document.querySelectorAll('.reveal').forEach(element => revealObserver.observe(element));
 
-    const styles = getComputedStyle(input);
-    const textBeforeCaret = input.value.slice(0, selectionStart);
-    measureContext.font = `${styles.fontStyle} ${styles.fontWeight} ${styles.fontSize} ${styles.fontFamily}`;
-    const letterSpacing = parseFloat(styles.letterSpacing) || 0;
-    const measuredWidth = measureContext.measureText(textBeforeCaret).width +
-      Math.max(0, textBeforeCaret.length - 1) * letterSpacing;
-
-    const paddingLeft = parseFloat(styles.paddingLeft) || 0;
-    const paddingRight = parseFloat(styles.paddingRight) || 0;
-    const absolutePosition = measuredWidth + paddingLeft;
-    const visibleRight = input.scrollLeft + input.clientWidth - paddingRight;
-    const visibleLeft = input.scrollLeft + paddingLeft;
-
-    if (absolutePosition > visibleRight) {
-      input.scrollLeft = absolutePosition - input.clientWidth + paddingRight;
-    } else if (absolutePosition < visibleLeft) {
-      input.scrollLeft = Math.max(0, absolutePosition - paddingLeft);
-    }
-
-    const x = Math.min(
-      Math.max(absolutePosition - input.scrollLeft, paddingLeft),
-      input.clientWidth - paddingRight
-    );
-    caret.style.transitionDuration = reducedMotion ? '0s' : '';
-    caret.style.left = `${x}px`;
-    caret.style.opacity = '1';
-  };
-
-  const scheduleSync = () => requestAnimationFrame(syncCaret);
-  input.addEventListener('focus', scheduleSync);
-  input.addEventListener('input', scheduleSync);
-  input.addEventListener('keyup', scheduleSync);
-  input.addEventListener('click', scheduleSync);
-  input.addEventListener('select', scheduleSync);
-  input.addEventListener('scroll', scheduleSync);
-  input.addEventListener('blur', () => { caret.style.opacity = '0'; });
-  document.addEventListener('selectionchange', scheduleSync);
-  document.fonts.ready.then(scheduleSync);
-  new ResizeObserver(scheduleSync).observe(wrapper);
-}
-
-initSmoothInput(document.querySelector('#email'));
-
-const newsletterEmail = document.querySelector('#email');
+const newsletter = document.querySelector('#newsletter');
+const newsletterInput = document.querySelector('#email');
 const newsletterMap = document.querySelector('.footer-location');
-if (newsletterEmail && newsletterMap) {
-  const syncMapPin = () => newsletterMap.classList.toggle('has-location', newsletterEmail.value.trim().length > 0);
-  newsletterEmail.addEventListener('input', syncMapPin);
-  syncMapPin();
-}
 
-const hoverGallery = document.querySelector('.art-hover-gallery');
-if (hoverGallery) {
-  const hoverArtworks = Array.from(hoverGallery.querySelectorAll('.hover-art'));
-  const activateArtwork = artwork => {
-    hoverArtworks.forEach(item => {
-      const active = item === artwork;
-      item.classList.toggle('active', active);
-      item.setAttribute('aria-pressed', String(active));
-    });
-    if (window.innerWidth <= 850) {
-      artwork.scrollIntoView({behavior:'smooth', block:'nearest', inline:'center'});
+newsletter.addEventListener('submit', event => {
+  event.preventDefault();
+  newsletter.querySelector('.form-status').textContent = 'You’re on the list. Your first letter arrives next month.';
+  newsletterInput.value = '';
+  newsletterMap.classList.remove('has-location');
+});
+
+newsletterInput.addEventListener('input', () => {
+  newsletterMap.classList.toggle('has-location', newsletterInput.value.trim().length > 0);
+});
+
+const prepareWordReveal = element => {
+  const words = element.textContent.trim().split(/\s+/);
+  element.textContent = '';
+  words.forEach((word, index) => {
+    const span = document.createElement('span');
+    span.textContent = word;
+    element.append(span);
+    if (index < words.length - 1) element.append(document.createTextNode(' '));
+  });
+};
+
+const wordReveal = document.querySelector('.word-reveal');
+prepareWordReveal(wordReveal);
+
+if (window.gsap && window.ScrollTrigger && !reducedMotion) {
+  gsap.registerPlugin(ScrollTrigger);
+
+  gsap.timeline({ defaults: { ease: 'power3.out' } })
+    .from('.hero .eyebrow', { opacity: 0, y: 16, duration: .7 })
+    .from('.hero h1 span', { opacity: 0, yPercent: 24, duration: 1, stagger: .12 }, '-=.35')
+    .from('.hero-intro-row', { opacity: 0, y: 24, duration: .8 }, '-=.45')
+    .from('.hero-visual', { clipPath: 'inset(0 0 100% 0)', duration: 1.15 }, '-=1')
+    .from('.hero-date', { opacity: 0, x: 35, duration: .65 }, '-=.4');
+
+  gsap.to('.hero-image', {
+    scale: 1.14,
+    ease: 'none',
+    scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: true }
+  });
+
+  ScrollTrigger.matchMedia({
+    '(min-width: 1001px)': () => {
+      ScrollTrigger.create({
+        trigger: '.story',
+        start: 'top top',
+        end: 'bottom bottom',
+        pin: '.story-heading',
+        pinSpacing: false
+      });
     }
-  };
+  });
 
-  hoverArtworks.forEach((artwork, index) => {
-    artwork.addEventListener('mouseenter', () => activateArtwork(artwork));
-    artwork.addEventListener('focus', () => activateArtwork(artwork));
-    artwork.addEventListener('click', () => activateArtwork(artwork));
-    artwork.addEventListener('keydown', event => {
-      if (!['ArrowLeft','ArrowRight'].includes(event.key)) return;
-      event.preventDefault();
-      const direction = event.key === 'ArrowRight' ? 1 : -1;
-      const nextIndex = (index + direction + hoverArtworks.length) % hoverArtworks.length;
-      hoverArtworks[nextIndex].focus();
-    });
+  gsap.to('.word-reveal span', {
+    opacity: 1,
+    stagger: .08,
+    ease: 'none',
+    scrollTrigger: { trigger: '.story', start: 'top 68%', end: '35% 42%', scrub: true }
+  });
+
+  document.querySelectorAll('.story-panel').forEach(panel => {
+    const image = panel.querySelector('img');
+    gsap.timeline({
+      scrollTrigger: { trigger: panel, start: 'top 92%', end: 'bottom 10%', scrub: true }
+    })
+      .fromTo(image, { scale: .86, opacity: .32 }, { scale: 1, opacity: 1, ease: 'none', duration: .58 })
+      .to(image, { scale: 1.05, opacity: .24, filter: 'saturate(.35) brightness(.55)', ease: 'none', duration: .42 });
+  });
+
+  gsap.from('.collection-statement', {
+    opacity: .18,
+    y: 70,
+    scrollTrigger: { trigger: '.collection-statement', start: 'top 90%', end: 'top 45%', scrub: true }
   });
 }
